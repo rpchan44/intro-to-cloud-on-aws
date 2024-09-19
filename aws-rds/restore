@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Restoring DB dump" 
+echo "Assumption username: admin password: ultimateavatar databasename: enrollment"
+echo "RDS endpoint : "; read x
+mysql -uadmin -pultimateavatar -h $x < mysql_data.sql
+sed -e "s/enrollment.c3gqiqci8wst.ap-southeast-1.rds.amazonaws.com/$x/g" index.php > index.php.tmp
+mv index.php.tmp index.php
+sudo cp index.php /var/www/html/
+sudo chown apache:apache /var/www/html/index.php
