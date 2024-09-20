@@ -5,3 +5,4 @@ sudo chkconfig httpd on
 sudo systemctl start httpd
 git clone https://github.com/rpchan44/intro-to-cloud-on-aws.git
 sudo chmod +x intro-to-cloud-on-aws/aws-rds/restore
+sudo chown ec2-user:ec2-user intro-to-cloud-on-aws -R
